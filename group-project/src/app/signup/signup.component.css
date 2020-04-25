@@ -1,0 +1,40 @@
+.form{
+    margin-left: 38%;
+    
+}
+.signup{
+    height: 86vh;
+}
+.label{
+    font-weight: 700;
+    font-size: 23px;
+}
+.btn{
+    margin-top: 10px;
+    margin-left: 50px;
+    width: 200px;
+    height: 45px;
+    border-radius: 15px;
+    background-color: rgb(2, 2, 2);
+    color: rgb(248, 248, 247);
+    border-radius: 30px;
+    font-weight: 600;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    line-height: 2.5;
+    border: none;
+}
+.input{
+    
+    width: 300px;
+    padding: 15px 0px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px black;
+    border-radius: 4px;
+    background-color: rgb(2, 2, 2);
+    color: white;
+    font-size: 16px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+

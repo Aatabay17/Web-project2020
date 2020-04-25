@@ -1,0 +1,12 @@
+<ul class="products">
+    <li *ngFor="let product of products">
+        <a routerLink="/products/{{product.id}}">
+        <span class="badge">{{product.id}}</span> {{product.name}} 
+        <div class="product__img">
+            <a href="{{ product.url }}" target="_blank">
+                <img src="{{ product.img }}" alt="Product Image">
+            </a>
+        </div>
+        </a>
+    </li>
+</ul>

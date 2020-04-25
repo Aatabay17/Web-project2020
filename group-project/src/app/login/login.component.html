@@ -1,0 +1,21 @@
+<div class="login">
+    <form class="form">
+        <div>
+            <label>
+                <p class="label">Username</p><input class="input" #userName type="text" name="username"  #user>
+            </label>
+        </div>
+        <div>
+        <label>
+            <p class="label">Password</p><input class="input" #passWord type="password" name="password">
+        </label>
+        
+        </div>
+        <div>
+            <button class = "btn"
+            (click)="loginUser(userName.value, passWord.value)">Log In</button>
+            <button class = "btn" (click)="signUp()">Sign Up</button>
+        </div>
+    </form>
+</div>
+

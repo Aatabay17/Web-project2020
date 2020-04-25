@@ -1,0 +1,32 @@
+<!-- <h2 class="title">Product Detail</h2> -->
+<div class="product" *ngIf="product">
+    <h3 class="product__name">
+        {{ product.name }}
+    </h3>
+    <div class="product__img">
+        <a href="{{ product.url }}" target="_blank">
+            <img src="{{ product.img }}" alt="Product Image">
+        </a>
+    </div>
+    <p class="product__description">
+        {{ product.description }}
+    </p>
+    <p class="product__price">
+        {{ product.price }} $
+    </p>
+    <p class="product__rating">
+        Rating: <span>{{ product.rating }}</span>
+    </p>
+    <div class="product__button">
+        <a class="product__link add-to-cart" (click)="addToCart(product)">Add to Cart</a>
+    </div>
+    <div class="product__button">
+        <a class="product__link favorite">Favorite &#9829;</a>
+    </div>
+    <!-- <div class="product__button">
+        <a href="https://telegram.me/share/url?url={{ product.url }}&text=" class="product__link">Share on Telegram.me</a>
+    </div> -->
+    <div class="product__button" (click)="goBack()">
+        <a class="product__link go-back">Go Back</a>
+    </div>
+</div>

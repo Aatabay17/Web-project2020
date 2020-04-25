@@ -1,0 +1,44 @@
+<button class='btn' (click)="goBack()">go back</button>
+<div class="category" *ngIf="products">
+    <ul class="products">
+        <li *ngFor="let product of products">
+            <a routerLink="/products/{{product.id}}">
+                <img class="img" src="{{ product.img }}" alt="Product Image">
+                {{product.name}}
+            </a>
+            <div>
+                <button class='btn1' (click)="delete(product)">Delete</button>
+            </div>
+        </li>
+    </ul>
+</div>
+<div><button class="btn" routerLink="/cart">Cart</button></div>
+<!--
+    <div class="pr">
+      <label><h3>Product name</h3>
+        <input class="input" #productName />
+      </label>
+      <label><h3>Product id</h3>
+        <input class="input" #productId />
+      </label>
+      <label><h3>Product description</h3>
+        <input class="input" #productDescription />
+      </label>
+      <label><h3>Product price</h3>
+        <input class="input" #productPrice />
+      </label>
+      <label><h3>Product img</h3>
+        <input class="input" #productImg />
+      </label>
+      <label><h3>Product url</h3>
+        <input class="input" #productUrl />
+      </label>
+    </div>
+        <div>
+          <button class="btn" (click)="add(productName.value, productId.value, productDescription.value, productPrice.value, productImg.value, productUrl.value);
+    productName.value=''; productId.value=''; productDescription.value=''; productPrice.value=''; productImg.value=''; productUrl.value=''">
+        Add
+          </button> 
+        </div> -->
+
+    

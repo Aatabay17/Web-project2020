@@ -1,0 +1,19 @@
+<div class="signup">
+    <form class="form">
+        <div>
+            <label>
+                <p class="label">Username</p><input class="input" #userName type="text" name="username"  #user>
+            </label>
+        </div>
+        <div>
+        <label>
+            <p class="label">Password</p><input class="input" #passWord type="password" name="password">
+        </label>
+        
+        </div>
+        <div>
+            <button class = "btn" (click)="save(userName.value, passWord.value)">Save</button>
+            <button class="btn" (click)="goBack()" >go back</button>
+        </div>
+    </form>
+</div>
