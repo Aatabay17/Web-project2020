@@ -42,3 +42,36 @@ class Product(models.Model):
             'price': self.price,
             'count': self.count,
         }
+
+#
+# class User(models.Model):
+#     username = models.CharField(max_length=200)
+#     password = models.CharField(max_length=20)
+#     category = models.ForeignKey(Category,
+#                                  on_delete=models.CASCADE,
+#                                  related_name='products')
+#
+#     def __str__(self):
+#         return '{}: {}'.format(self.id, self.name)
+#
+#     def to_json(self):
+#         return {
+#             'id': self.id,
+#             'username': self.username,
+#             'password': self.password,
+#         }
+
+class Comment(models.Model):
+    description = models.CharField(max_length=200)
+    user = models.ForeignKey(User,
+                                 on_delete=models.CASCADE,
+                                 related_name='products')
+
+    def __str__(self):
+        return '{}: {}'.format(self.id, self.name)
+
+    def to_json(self):
+        return {
+            'id': self.id,
+            'description': self.description,
+        }
