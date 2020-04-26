@@ -32,10 +32,6 @@ export class ProductDetailComponent implements OnInit {
     this.cartService.addToCart(product);
     window.alert('Your product has been added to the cart!');
   }
-  delete(product: Product): void {
-    this.products = this.products.filter(p => p !== product);
-    this.categoriesService.deleteProduct(product).subscribe();
-  }
   
   getProduct(): void {
     const id = +this.route.snapshot.paramMap.get('id');
@@ -43,18 +39,8 @@ export class ProductDetailComponent implements OnInit {
       .subscribe(product => this.product = product);
   }
   
-  
   goBack(): void {
     this.location.back();
   }
   
-  add(name: string, id: number, description: string, price: number, img: string, url: string): void {
-    name = name.trim();
-    if (!name||!id||!description||!price||!img||!url) { return; }
-    this.categoriesService.addProduct({ name, id, description, price, img, url } as Product)
-      .subscribe(product => {
-        this.products.push(product);
-      });
-  }
-
 }

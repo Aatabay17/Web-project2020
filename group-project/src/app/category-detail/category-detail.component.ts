@@ -25,9 +25,8 @@ export class CategoryDetailComponent implements OnInit {
   }
 
   getProducts(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.categoriesService.getProductsByCategoryIdFromAllProducts(id)
-      .subscribe(products => this.products = products)
+    const id = +this.route.snapshot.paramMap.get('id');   
+    this.categoriesService.getProducts(id).subscribe(products => this.products = products);
   }
 
   goBack(): void {
@@ -43,9 +42,5 @@ export class CategoryDetailComponent implements OnInit {
       });
   }
 */
-  delete(product: Product): void {
-    this.products = this.products.filter(p => p !== product);
-    this.categoriesService.deleteProduct(product).subscribe();
-  }
   
 }

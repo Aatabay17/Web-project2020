@@ -28,9 +28,9 @@ export class ProductsComponent implements OnInit {
     
   }
 
-  getProducts():void {
-    this.categoriesService.getProducts()
-      .subscribe(products => this.products = products);
+  getProducts() {
+    const id = +this.route.snapshot.paramMap.get('id');   
+    this.categoriesService.getProducts(id).subscribe(products => this.products = products);
   }
   
 }

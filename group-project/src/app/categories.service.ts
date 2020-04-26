@@ -27,31 +27,9 @@ export class CategoriesService {
     private http: HttpClient,
     ) { }
 
-  /** GET heroes from the server */
-  getCategories(): Observable<Category[]> {
-    return this.http.get<Category[]>(this.categoriesUrl)
-      .pipe(
-        catchError(this.handleError<Category[]>('getCategories', []))
-      );
-  }
-  getProducts(): Observable<Product[]> {
-    return of(PRODUCTS);
-  }
+  
+  
 
-  getProduct(id: number): Observable<Product> {
-    const url = `${this.productsUrl}/${id}`;
-    return this.http.get<Product>(url).pipe(
-      catchError(this.handleError<Product>(`getProduct id=${id}`))
-    );
-  }
-
-  /** GET hero by id. Will 404 if id not found */
-  getCategory(id: number): Observable<Category> {
-    const url = `${this.categoriesUrl}/${id}`;
-    return this.http.get<Category>(url).pipe(
-      catchError(this.handleError<Category>(`getCategory id=${id}`))
-    );
-  }
 
   getProductsByCategoryIdFromAllProducts(categoryId: number): Observable<Product[]> {
     const tempProducts = this.http.get<Product[]>(this.productsUrl)
@@ -61,46 +39,6 @@ export class CategoriesService {
       );
     return tempProducts;
   }
-
-
-  /** POST: add a new hero to the server */
-  addProduct (product: Product): Observable<Product> {
-    return this.http.post<Product>(this.productsUrl, product, this.httpOptions).pipe(
-      catchError(this.handleError<Product>('addProduct'))
-    );
-  }
-
-  /** DELETE: delete the hero from the server */
-  deleteProduct (product: Product | number): Observable<Product> {
-    const id = typeof product === 'number' ? product : product.id;
-    const url = `${this.productsUrl}/${id}`;
-  
-    return this.http.delete<Product>(url, this.httpOptions).pipe(
-      catchError(this.handleError<Product>('deleteProduct'))
-    );
-  }
-
-  deleteCategory (category: Category | number): Observable<Category> {
-    const id = typeof category === 'number' ? category : category.id;
-    const url = `${this.categoriesUrl}/${id}`;
-
-    return this.http.delete<Category>(url, this.httpOptions).pipe(
-      catchError(this.handleError<Category>('deleteCategory'))
-    );
-  }
-
-  /** PUT: update the hero on the server */
-  updateProduct (product: Product): Observable<any> {
-    return this.http.put(this.productsUrl, product, this.httpOptions).pipe(
-      catchError(this.handleError<any>('updateProduct'))
-    );
-  }
-
- 
-   /* Handle Http operation that failed.
-   * Let the app continue.
-   * @param operation - name of the operation that failed
-   * @param result - optional value to return as the observable result*/
    
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
@@ -112,15 +50,18 @@ export class CategoriesService {
       return of(result as T);
     };
   } 
-  /**
-    getCategoryList(): Observable<Category[]> {
-    return this.http.get<Category[]>(`${this.BASE_URL}/api/companies/`);
+  
+  getProduct(id): Observable<Product> {
+    return this.http.get<Product>(`${this.BASE_URL}/api/products${id}/`);
+  }
+  getCategories(): Observable<Category[]> {
+    return this.http.get<Category[]>(`${this.BASE_URL}/api/categories/`);
   }
   getCategory(id): Observable<Category> {
-    return this.http.get<Category>(`${this.BASE_URL}/api/companies${id}/`);
+    return this.http.get<Category>(`${this.BASE_URL}/api/categories${id}/`);
   }
   getProducts(id): Observable<Product[]> {
-    return this.http.get<Product[]>(`${this.BASE_URL}/api/companies/${id}/vacancies`);
+    return this.http.get<Product[]>(`${this.BASE_URL}/api/products/`);
   }
   login(username, password): Observable<LoginResponse> {
     return this.http.post<LoginResponse>(`${this.BASE_URL}/api/login/`, {
@@ -128,6 +69,6 @@ export class CategoriesService {
       password
     });
   }
-   */
+   
   
 }
