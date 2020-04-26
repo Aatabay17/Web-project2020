@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+import { Comment } from "./comment";
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
@@ -26,9 +26,6 @@ export class CategoriesService {
   constructor(
     private http: HttpClient,
     ) { }
-
-  
-  
 
 
   getProductsByCategoryIdFromAllProducts(categoryId: number): Observable<Product[]> {
@@ -69,6 +66,24 @@ export class CategoriesService {
       password
     });
   }
-   
-  
+  getComments(): Observable<Comment>{
+    return this.http.get<Comment>(`${this.BASE_URL}/api/comments/`);
+  }
+
+  addComment(comment: any): Observable<Comment>{
+    return this.http.post(`${this.BASE_URL}/api/comments`, comment, this.httpOptions).pipe(
+      catchError(this.handleError<any>('addComment'))
+    );
+  }
+  updateComment(comment: Comment): Observable<Comment>{
+    return this.http.put<Comment>(`${this.BASE_URL}/api/comments/${comment.id}/`, comment, this.httpOptions).pipe(
+      catchError(this.handleError<Comment>('updateComment'))
+    );
+  }
+  deleteComment(comment: Comment | number): Observable<Comment> {
+    const id=typeof comment==='number'?comment:comment.id;
+    return this.http.delete<Comment>(`${this.BASE_URL}/api/comments/${id}/`, this.httpOptions).pipe(
+      catchError(this.handleError<Comment>('deleteComment'))
+    );
+  }
 }

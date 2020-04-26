@@ -1,0 +1,8 @@
+<div class="app-comment">
+    <div class="container">
+        <div class="comment" *ngFor="let comment of comments">
+            <p>{{comment.text}}</p>
+            <button (click)="delete(comment)">Delete</button>
+        </div>
+    </div>
+</div>

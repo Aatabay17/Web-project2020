@@ -1,21 +1,15 @@
 <div class="login">
-    <form class="form">
-        <div class="">
-            <label>
-                <p class="label">Username</p><input class="input" #userName type="text" name="username"  #user>
-            </label>
+    <div class="form">
+        <div class="form__header">
+            <h2 class="form__title">Login</h2>
+            <p class="form__legend">Please enter your username and password:</p>
         </div>
-        <div>
-        <label>
-            <p class="label">Password</p><input class="input" #passWord type="password" name="password">
-        </label>
+        <div class="form__item">
+            <input class="input" type="text" placeholder="Username"  [(ngModel)]="username">
         </div>
-    
-        <div class="block-btn">
-            <button class = "btn" (click)="loginUser(userName.value, passWord.value)">Log In</button>
-            <button class = "btn" (click)="signUp()">Sign Up</button>
+        <div class="form__item">
+            <input class="input" type="password" placeholder="Password" [(ngModel)]="password">
         </div>
-    </form>
+        <button class="submit" (click)="login()">Login</button>
+    </div>
 </div>
-
-

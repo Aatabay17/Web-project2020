@@ -8,7 +8,7 @@ export class CartService {
   constructor(private categoriesService: CategoriesService) { }
   addToCart(product) {
     this.items.push(product);
-    this.categoriesService.deleteProduct(product);
+    // this.categoriesService.deleteProduct(product);
   }
 
   getItems() {
