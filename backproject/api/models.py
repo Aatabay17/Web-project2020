@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 # Create your models here.
 class CategoryManager(models.Manager):
     def for_user_order_by_name(self, user):
@@ -18,30 +19,19 @@ class Category(models.Model):
     def __str__(self):
         return '{}: {}'.format(self.id, self.name)
 
-    def to_json(self):
-        return {
-            'id': self.id,
-            'name': self.name
-        }
 
 class Product(models.Model):
     name = models.CharField(max_length=200)
-    price = models.FloatField()
-    count = models.IntegerField()
+    description = models.TextField(default='')
+    price = models.FloatField(default=0)
+    img = models.TextField(default='', null=True)
+    url = models.TextField(default='')
     category = models.ForeignKey(Category,
                                  on_delete=models.CASCADE,
                                  related_name='products')
 
     def __str__(self):
         return '{}: {}'.format(self.id, self.name)
-
-    def to_json(self):
-        return {
-            'id': self.id,
-            'name': self.name,
-            'price': self.price,
-            'count': self.count,
-        }
 
 #
 # class User(models.Model):
@@ -62,16 +52,13 @@ class Product(models.Model):
 #         }
 
 class Comment(models.Model):
-    description = models.CharField(max_length=200)
+    text = models.TextField(default='')
+    created_date = models.DateTimeField(default=timezone.now)
     user = models.ForeignKey(User,
                                  on_delete=models.CASCADE,
                                  related_name='products')
 
     def __str__(self):
-        return '{}: {}'.format(self.id, self.name)
+        return f'Post id={self.id}, name={self.name}'
 
-    def to_json(self):
-        return {
-            'id': self.id,
-            'description': self.description,
-        }
+
