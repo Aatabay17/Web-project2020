@@ -11,7 +11,7 @@
 }
 .btn{
     margin-top: 10px;
-    margin-left: 50px;
+    /* margin-left: 50px; */
     width: 200px;
     height: 45px;
     border-radius: 15px;
@@ -26,15 +26,17 @@
 }
 .input{
     
-    width: 300px;
+    width: 400px;
     padding: 15px 0px;
     margin: 8px 0;
     box-sizing: border-box;
-    border: 2px black;
+    border: 5px black;
     border-radius: 4px;
     background-color: rgb(2, 2, 2);
     color: white;
     font-size: 16px;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
-
+/* .block-btn {
+  
+} */

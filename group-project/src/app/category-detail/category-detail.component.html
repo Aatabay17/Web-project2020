@@ -1,4 +1,4 @@
-<button class='btn' (click)="goBack()">go back</button>
+<button class='btn' (click)="goBack()">Go back</button>
 <div class="category" *ngIf="products">
     <ul class="products">
         <li *ngFor="let product of products">
@@ -12,7 +12,9 @@
         </li>
     </ul>
 </div>
-<div><button class="btn" routerLink="/cart">Cart</button></div>
+<div class="" style="margin-bottom: 30px;">
+  <button class="btn" routerLink="/cart">Cart</button>
+</div>
 <!--
     <div class="pr">
       <label><h3>Product name</h3>

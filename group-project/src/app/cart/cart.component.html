@@ -1,5 +1,4 @@
 
-<div><button class="btn" (click)="goBack()">go back</button></div>
 <div class="items" *ngFor="let item of items">
     <a routerLink="/cart">
         <img class="img" src="{{ item.img }}" alt="Item Image">
@@ -7,7 +6,9 @@
     <h3 class="product__name">
         {{ item.name }}
     </h3>
-    <p class="product__price">
+    <!-- <p class="product__price">
         {{ item.price }} $
-    </p>
+    </p> -->
 </div>
+
+<div><button class="btn" style="margin-bottom: 30px;" (click)="goBack()">Go back</button></div>
